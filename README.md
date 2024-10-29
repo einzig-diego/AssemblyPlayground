@@ -25,32 +25,29 @@ An x86 CPU simulator written in C# .NET 4.8.
 
 ## Example assembly script:
 ```asm
-DB message, "hello world"
 DB inputBuffer, "  "  ; Buffer to store user input (2 characters + null terminator)
-MOV BX, inputBuffer
-
+MOV CX, inputBuffer
 
 input:
 MOV AH, 0x16  ; Wait for key press
 INT 0x16
-MOV [BX], AL  ; Store first character
-INC BX
+MOV [CX], AL  ; Store first character
+INC CX
 MOV AH, 0x16  ; Wait for key press
 INT 0x16
-MOV [BX], AL  ; Store second character
-INC BX
+MOV [CX], AL  ; Store second character
+INC CX
 
-
-MOV BX, inputBuffer
-MOV AL, [BX]
-CMP AL, 0x68
+MOV CX, inputBuffer
+MOV AL, [CX]
+CMP AL, 0x68  ; Compare with 'h'
 JNE input  ; If not 'h', wait for input again
-INC BX
-MOV AL, [BX]
-CMP AL, 0x69
+INC CX
+MOV AL, [CX]
+CMP AL, 0x69  ; Compare with 'i'
 JNE input  ; If not 'i', wait for input again
 
-
+DB message, "hello!"
 MOV BX, message
 print:
 MOV AL, [BX]
