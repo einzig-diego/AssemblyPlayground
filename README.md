@@ -47,7 +47,7 @@ MOV AL, [CX]
 CMP AL, 0x69  ; Compare with 'i'
 JNE input  ; If not 'i', wait for input again
 
-DB message, "hello!"
+DB message, "\nhello!"
 MOV BX, message
 print:
 MOV AL, [BX]
