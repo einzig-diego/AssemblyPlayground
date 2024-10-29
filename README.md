@@ -25,7 +25,7 @@ An x86 CPU simulator written in C# .NET 4.8.
 
 ## Example assembly script:
 ```asm
-DB message, "hi leute"
+DB message, "hello world"
 DB inputBuffer, "  "  ; Buffer to store user input (2 characters + null terminator)
 MOV BX, inputBuffer
 
